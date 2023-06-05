@@ -1,0 +1,236 @@
+
+GUIA COMO USAR LA APP
+
+
+
+Autenticación
+
+
+Método: POST
+URL: /login
+Descripción: autentica a un usuario y devuelve un token firmado para solicitudes posteriores.
+Cuerpo de la solicitud:
+
+username: (string) El nombre de usuario del usuario.
+password: (string) La contraseña del usuario.
+Solicitud de ejemplo:
+POST / login
+{
+  "username": "string",
+  "password": "string"
+}
+esto le dará un token, que necesitará pegar como un token de baeren.
+
+Para realizar acciones que requieren autenticación y para crear un usuario (porque la API en realidad tiene 0 datos), deberá iniciar sesión como:
+
+  "username": "admin",
+  "password": "admin"
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Users
+Obtener todos los usuarios
+
+Método: get
+URL: /user
+Descripción: Recupera todos los usuarios.
+Solicitud de ejemplo:
+GET /user
+
+Obtener usuario por ID<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Método: GET
+URL: /user/{id}
+Descripción: Recupera un usuario específico por ID.
+GET /user/1
+
+
+Crear usuario
+
+Método: POST
+URL: /user
+Descripción: Crea un nuevo usuario.
+Cuerpo de la solicitud:
+
+nombre: (string) El nombre del usuario.
+email: (string) La dirección de correo electrónico del usuario.
+password: (string) La contraseña del usuario.
+
+
+Solicitud de ejemplo:
+{
+	"username": "string",
+	"name": "string",
+	"email": "string@gmail.com",
+	"password": "string"
+}
+
+Actualizar usuario
+
+Método: PUT
+URL: /user/{id}
+Descripción: Actualiza un usuario existente.
+Cuerpo de solicitud (puede actualizar tantas propiedades como desee):
+
+username: (string) el nombre de usuario actualizado del usuario
+
+name: (string) El nombre actualizado del usuario.
+
+email: (string) La dirección de correo electrónico actualizada del usuario.
+
+EJ. username: "pepe"
+
+
+Borrar usuario
+
+Método: DELETE
+URL: /user/{id}
+Descripción: Elimina un usuario.
+Solicitud de ejemplo:
+DELETE /user/1
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Libros Books
+
+Obtener todos los libros
+Método: GET
+URL: /book
+Descripción: Recupera todos los libros.
+Solicitud de ejemplo:
+GET /book
+
+
+
+Obtener libro por ID
+
+Método: GET
+URL: /book/{id}
+Descripción: Recupera un libro específico por ID.
+Solicitud de ejemplo:
+GET /book/1
+
+
+Crear libro
+
+Método: POST
+URL: /book
+Descripción: Crea un nuevo libro.
+Cuerpo de la solicitud:
+
+isbn: el identificador único del libro. (INT)
+title: (string) El título del libro.
+autor: (string) El autor del libro.
+año: (INT) El año de publicación del libro. (max es el año actual).
+LibraryId: (INT) La biblioteca asociada del libro, puede ser nula.
+Solicitud de ejemplo:
+{
+  "isbn": 1235125,
+  "title": "Book 3",
+  "author": "Author 3",
+  "year": 2024,
+  "LibraryId": 1
+}
+
+
+Actualizar libro
+Método: PUT
+URL: /book/{id}
+Descripción: Actualiza un libro existente.
+Cuerpo de la solicitud:
+
+isbn: el identificador único del libro. (INT)
+title: (string) El título actualizado del libro.
+author: (string) El autor actualizado del libro.
+year: (string) El año actualizado de publicación del libro.
+
+Solicitud de ejemplo:
+
+{
+  "isbn": 12354
+  "title": "Updated Book",
+  "author": "Updated Author",
+  "year": 2023
+}
+
+
+
+Eliminar libro
+
+Método: DELETE
+URL: /book/{id}
+Descripción: Elimina un libro.
+Solicitud de ejemplo:
+DELETE /book/1
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+bibliotecas
+
+Obtener todas las bibliotecas
+Método: GET
+URL: /library
+Descripción: Recupera todas las bibliotecas junto con sus libros asociados.
+Solicitud de ejemplo:
+GET /library
+
+
+
+Obtener biblioteca por ID
+
+Método: GET
+URL: /library/{id}
+Recupera una biblioteca específica por ID junto con sus libros asociados.
+Solicitud de ejemplo:
+GET /library/1
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Crear biblioteca
+Método: POST
+URL: /library
+Crea una nueva biblioteca.
+Cuerpo de la solicitud:
+
+name: (string) El nombre de la biblioteca.
+location: (string) La ubicación de la biblioteca.
+landline: (string) El número de teléfono de la biblioteca.
+
+Solicitud de ejemplo:
+
+{
+	"name": "string",
+	"location": "string",
+	"landline": "12412414"
+}
+
+
+Actualizar biblioteca
+
+Método: PUT
+URL: /library/{id}
+Actualiza una biblioteca existente.
+
+Cuerpo de la solicitud:
+name: (string) El nombre actualizado de la biblioteca.
+location: (string) La ubicación actualizada de la biblioteca.
+landline: (string) El número de teléfono actualizado de la biblioteca.
+
+Solicitud de ejemplo:
+{
+  "name": "Updated Library",
+  "location": "Updated Location",
+  "landline": "5555555555"
+}
+
+
+
+
+Eliminar biblioteca
+
+Método: DELETE
+URL: /library/{id}
+Elimina una biblioteca.
+
+Solicitud de ejemplo:
+DELETE /library/1
